@@ -398,9 +398,16 @@ const purchases = [{"month":"February","price":37.85},{"month":"January","price"
 
 const purchasesByMonth = _.groupBy(purchases, 'month'); // Use groupBy to group the purchases by the month that they were made.
 console.log(purchasesByMonth);
+const totalByMonth =  {} // Use the groupded purchasesByMonth and reduce to create a totalByMonth object.
 // Bonus Points
-const totalByMonth = ; // Use the groupded purchasesByMonth and reduce to create a totalByMonth object.
+for(key in purchasesByMonth) {
+  console.log(purchasesByMonth[key]);
+  const total = _.reduce(purchasesByMonth[key], function ( sum, obj) {return sum  + obj.price}, 0 )
+  console.log(total);
+  totalByMonth[key] = total;
 
+}
+console.log(totalByMonth);
 // memoize
 //  Memoize lets us take a function that takes a lot of time to run.  And memeorize
 //  results for that function, so if we run the function with the same parameters again,
