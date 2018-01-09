@@ -1,9 +1,9 @@
-
+// const _ = require('underscore')
 /*
   Underscore is a library that can help us clean up our code.  It has many helpful
   function in it.  Many of which were so helpful, they have found their way
   into the core of JavaScript (map, filter, forEach, reduce, find) There are others
-  that are under review for being incorperated into the core JavaScript language.
+  that are under review for being incorporated into the core JavaScript language.
 
   In the meantime, we can use all that handy functionality by bringing in the
   underscore library.  The documents can be found here, and can be brought into
@@ -306,11 +306,13 @@ const myEmployees = [
   }
 ]
 
-const myEmployeesAddresses = 0// use pluck to get addresses here.
+let myEmployeesAddresses = _.pluck(myEmployees, 'address'); // use pluck to get addresses here.
+console.log(myEmployeesAddresses);
 
 // Now we want to use pluck to get an array of ages of the employees.
 
-const myEmployeesAges = 0 // use pluck to get ages here.
+const myEmployeesAges = _.pluck(myEmployees, 'age');
+console.log(myEmployeesAges);// use pluck to get ages here.
 
 // union
 //  Union lets us take 2 arrays, and create a new array that only has 1 entry for
@@ -335,7 +337,9 @@ const breeFriendsEmails = ["red.power@ranger.com", "pikachu@gmail.com", "james@g
                             "batman@gothan.gov", "betty.white@gmail.com", "mr.giggles@gmail.com",
                             "mrs.giggles@gmail.com", "stacey@gmail.com", "brent@gmail.com", "dave@gmail.com"];
 
-const listToSendEmailsTo = 0; // Put underscore here to make list of the union of the two address.
+const listToSendEmailsTo = _.union(bobFriendsEmails, breeFriendsEmails);
+ console.log(listToSendEmailsTo);
+// Put underscore here to make list of the union of the two address.
 
 
 // intersection
@@ -349,8 +353,8 @@ const listToSendEmailsTo = 0; // Put underscore here to make list of the union o
 // Bob and Bree have decided that instead of inviting everyone they know to their
 // party.  They are instead only going to invite those people that they both know.
 
-const listOfSharedEmails = 0; // Use underscore to create the list that are in both lists
-
+const listOfSharedEmails = _.intersection(bobFriendsEmails, breeFriendsEmails); // Use underscore to create the list that are in both lists
+console.log(listOfSharedEmails);
 // groupBy
 //  Group By lets us take an array of objects, and group then into groups based
 //  on a proprty.
@@ -392,10 +396,10 @@ const purchases = [{"month":"February","price":37.85},{"month":"January","price"
 {"month":"April","price":56.89},{"month":"February","price":86.19},{"month":"April","price":87.99},
 {"month":"January","price":14.25},{"month":"March","price":60.80},{"month":"February","price":23.65}]
 
-const purchasesByMonth = 0; // Use groupBy to group the purchases by the month that they were made.
-
+const purchasesByMonth = _.groupBy(purchases, 'month'); // Use groupBy to group the purchases by the month that they were made.
+console.log(purchasesByMonth);
 // Bonus Points
-const totalByMonth = 0; // Use the groupded purchasesByMonth and reduce to create a totalByMonth object.
+const totalByMonth = ; // Use the groupded purchasesByMonth and reduce to create a totalByMonth object.
 
 // memoize
 //  Memoize lets us take a function that takes a lot of time to run.  And memeorize
